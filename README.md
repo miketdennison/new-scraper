@@ -57,7 +57,7 @@ No Installation is required.
 
 **Project Link** - [https://github.com/miketdennison/news-scraper](https://github.com/miketdennison/news-scraper)  
 
-**Project Website** - [https://news-scraper-smu.herokuapp.com](https://news-scraper-smu.herokuapp.com)
+**Project Website** - [https://news-scraper-smu.herokuapp.com](https://news-scrape-smu.herokuapp.com/)
 
 
 
