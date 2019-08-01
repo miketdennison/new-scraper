@@ -26,7 +26,11 @@ app.use(express.static('public'));
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/webscraper';
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
+}, (err) => {
+  if (err) console.log(err);
+  else console.log('mongoose connected');
 });
+
 
 // EXPRESS-HANDLEBARS
 app.engine('handlebars', exphbs({
@@ -34,8 +38,8 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-// ROUTES
-const routes = require('./controllers/webscraper.js');
+// ROUTER MIDDLEWARE
+const routes = require('./configs/routes.js');
 app.use(routes);
 
 // SERVER LISTENER
