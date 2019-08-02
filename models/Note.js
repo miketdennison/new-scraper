@@ -1,19 +1,15 @@
-// DEPENDENCIES
-const mongoose = require('mongoose');
+var mongoose = require("mongoose");
 
-// ARTICLE SCHEMA
-const Schema = mongoose.Schema;
-const noteSchema = new Schema({
-  _articleId: {
-    type: Schema.Types.ObjectId,
-    ref: 'Article',
-  },
-  date: String,
-  noteText: String,
+var Schema = mongoose.Schema;
+
+var noteSchema = new Schema({
+    _headlineId: {
+        type: Schema.Types.ObjectId,
+        ref: "Headline"
+    },
+    date: String,
+    noteText: String
 });
 
-// CREATE MODEL
-const Note = mongoose.model('Note', noteSchema);
-
-// EXPORTS
+var Note = mongoose.model("Note", noteSchema);
 module.exports = Note;

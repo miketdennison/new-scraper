@@ -1,30 +1,29 @@
-// DEPENDENCIES
-const request = require('request');
-const cheerio = require('cheerio');
+const request = require("request");
+const cheerio = require("cheerio");
 
-const scrape = (cb) => {
-  request('https://www.nytimes.com/', (err, res, body) => {
-    const $ = cherio.load(body);
-    const articles = [];
 
-    $('.theme-summary').each( (i, element) => {
-      const article = $(this).children('.story-heading').text().trim();
-      const summary = $(this).children('.summary').text().trim();
+var scrape = (cb) => {
+    request("https://www.nytimes.com/", (err, res, body) => {
+        var $ = cheerio.load(body);
+        var articles = [];
+        $("article").each((i, element) => {
+            var head = $(element).find('h2').text().trim();
+            var sum = $(element).find('p').text().trim()
 
-      // If text, cleanup whitespace then add it to articles array
-      if (article && summary) {
-        const articleNeat = head.replace(/(\r\n|\n|\r|\t|\s+)/gm, ' ').trim();
-        const summaryNeat = head.replace(/(\r\n|\n|\r|\t|\s+)/gm, ' ').trim();
+            if(head && sum) {
+                var headNeat = head.replace(/(r\n|\n|\r|\t|\s+)/gm, " ").trim();
+                var sumNeat = sum.replace(/(r\n|\n|\r|\t|\s+)/gm, " ").trim();
 
-        const dataToAdd = {
-          article: articleNeat,
-          summary: summaryNeat,
-        };
-        articles.push(dataToAdd);
-      }
+                var dataToAdd = {
+                    headline: headNeat,
+                    summary: sumNeat
+                };
+
+                articles.push(dataToAdd);
+            }
+        });
+        cb(articles);
     });
-    cb(articles);
-  });
-};
+}
 
 module.exports = scrape;

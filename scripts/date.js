@@ -1,10 +1,12 @@
-const makeDate = function() {
-  const date = new Date();
-  let formattedDate = '';
-  formattedDate += (date.getMonth() + 1) + '_';
-  formattedDate += date.getDate() + '_';
-  formattedDate += date.getFullYear();
-  return formattedDate;
-};
+var makeDate = () => {
+    var d = new Date();
+    var formattedDate = "";
+
+    formattedDate += (d.getMonth() + 1) + "_";
+    formattedDate += d.getDate() + "_";
+    formattedDate += d.getFullYear();
+    
+    return formattedDate;
+}
 
 module.exports = makeDate;
