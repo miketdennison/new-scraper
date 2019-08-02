@@ -10,10 +10,13 @@ module.exports = {
                 articles[i].date = makeDate();
                 articles[i].saved = false;
             }
+            Headline.collection.insertMany(articles, {
+                ordered: false
+            }, (err, docs) => {
+                cb(err, docs);
+            });
         });
-        Headline.collection.insertMany(articles, {ordered:false}, (err, docs) => {
-            cb(err, docs);
-        });
+        
     },
     delete: (query, cb) => {
         Headline.remove(query, cb);
