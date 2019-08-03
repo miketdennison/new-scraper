@@ -1,20 +1,20 @@
 $(document).ready(() => {
     var articleContainer = $(".article-container");
     $(document).on("click", ".btn.save", handleArticleSave);
-    $(document).on("click", ".scrape-new", handleArticleScrape); 
+    $(document).on("click", ".scrape-new", handleArticleScrape);
 
     initPage();
 
     function initPage() {
         articleContainer.empty();
         $.get("/api/headlines?saved=false")
-        .then((data)=> {
-            if(data && data.length) {
-                renderArticles(data);
-            } else {
-                renderEmpty();
-            }
-        });
+            .then((data) => {
+                if (data && data.length) {
+                    renderArticles(data);
+                } else {
+                    renderEmpty();
+                }
+            });
     }
 
     function renderArticles(articles) {
@@ -26,19 +26,20 @@ $(document).ready(() => {
     }
 
     function createPanel(article) {
-        var panel = $(["<div class='panel panel-default'>",
-        "<div class='panel-heading'",
-        "<h3>",
-        article.headline,
-        "<a class='btn btn-success save'>",
-        "Save Article",
-        "</a>",
-        "</h3>",
-        "</div>",
-        "<div class='panel-body'>",
-        article.summary,
-        "</div>",
-        "</div>"
+        var panel = $([
+            "<div class='panel panel-default'>",
+            "<div class='panel-heading'",
+            "<h3>",
+            article.headline,
+            "<a class='btn btn-success save'>",
+            "Save Article",
+            "</a>",
+            "</h3>",
+            "</div>",
+            "<div class='panel-body'>",
+            article.summary,
+            "</div>",
+            "</div>"
         ].join(""));
         panel.data("_id", article._id);
         return panel;
@@ -69,19 +70,19 @@ $(document).ready(() => {
         articleToSave.saved = true;
 
         $.ajax({
-            method: "PATCH",
-            url: "/api/headlines",
-            data: articleToSave
-        })
-        .then((data) => {
-            if(data.ok) {
-                initPage();
-            }
-        });
+                method: "PATCH",
+                url: "/api/headlines",
+                data: articleToSave
+            })
+            .then((data) => {
+                if (data.ok) {
+                    initPage();
+                }
+            });
     }
 
     function handleArticleScrape() {
-        $.get("/api/fetch").then((data)=> {
+        $.get("/api/fetch").then((data) => {
             initPage();
             bootbox.alert("<h3 class='text-center m-top-80'>" + data.message + "<h3>");
         });
