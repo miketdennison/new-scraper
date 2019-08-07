@@ -12,7 +12,7 @@
 * [Acknowledgements](#acknowledgements)
 
 ## About The Project
-(Under Development)
+(Under Development -- WORKS LOCALLY)
 News Scraper is a web scraper that scrapes the NYT for news articles and allows users to add articles to a "saved" section of the website.
 
 ### Built With
