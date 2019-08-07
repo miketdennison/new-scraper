@@ -61,5 +61,5 @@ Project Link: [https://github.com/miketdennison/friendfinder](https://github.com
 * [heroku](https://www.heroku.com/)
 
 <!-- IMAGES -->
-[home-img]: ./readme-imgs/home.gif
-[saved-img]: ./readme-imgs/saved.gif
+[home-img]: ./readme-imgs/home.png
+[saved-img]: ./readme-imgs/saved.png
