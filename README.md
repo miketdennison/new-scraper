@@ -53,7 +53,7 @@ Visit  the [app website](https://news-scrape-smu.herokuapp.com/)
 
 ## Contact
 Michael Dennison - [LinkedIn](https://linkedin.com/in/michaeltdennison) - miketdennison@gmail.com  
-Project Link: [https://github.com/miketdennison/friendfinder](https://github.com/miketdennison/eatdaburger)
+Project Link: [https://github.com/miketdennison/news-scraper](https://github.com/miketdennison/news-scraper)
 
 
 ## Acknowledgements
